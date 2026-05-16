@@ -97,12 +97,24 @@ impl Executor {
 fn main() {
     let (executor, spawner) = new_executor_and_spawner();
 
-    // Spawn a task to print before and after waiting on a timer.
+    // Spawn tasks to print before and after waiting on a timer.
     spawner.spawn(async {
         println!("Raymundo's computer: howdy!");
         // Wait for our timer future to complete after two seconds.
         TimerFuture::new(Duration::new(2, 0)).await;
         println!("Raymundo's computer: done!");
+    });
+    spawner.spawn(async {
+        println!("Raymundo's computer: howdy2!");
+        // Wait for our timer future to complete after two seconds.
+        TimerFuture::new(Duration::new(2, 0)).await;
+        println!("Raymundo's computer: done2!");
+    });
+    spawner.spawn(async {
+        println!("Raymundo's computer: howdy3!");
+        // Wait for our timer future to complete after two seconds.
+        TimerFuture::new(Duration::new(2, 0)).await;
+        println!("Raymundo's computer: done3!");
     });
 
     println!("Raymundo's computer: hey hey");
