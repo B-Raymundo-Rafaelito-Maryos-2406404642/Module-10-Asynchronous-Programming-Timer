@@ -1,0 +1,4 @@
+## Experiment 1.2: Understanding how it works
+![Understanding how it works](assets\understanding_how_it_works.png)
+
+The result is as such because the line `Raymundo's computer: hey hey` is printed before the timer future completes, showing that the main thread is not blocked while waiting for the timer to complete. The timer future is being executed on the executor, which is running concurrently with the main thread. First, it prints `Raymundo's computer: howdy!`, then waits for the timer to complete for two seconds, and finally prints `Raymundo's computer: done!`. This demonstrates that the main thread can continue executing other code while waiting for the timer to complete. This illustrates the asynchronous nature of the executor and how it allows for non-blocking execution of tasks. This enables the main thread to perform other operations while waiting for asynchronous tasks to complete. 
